@@ -1,33 +1,16 @@
 import React from 'react'
 
-class Display extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            balls: 0,
-            strikes: 0
-        }
-    }
+const Display = props => { 
+    const balls = props.count.balls
+    const strikes = props.count.strikes
 
-    ballclicker = e => {
-        e.preventDefault()
-        this.setState({
-            balls: this.state.balls + 1
-        })
-    }
-    
-    render() {
-        return (
-            <div>
-                <h2>Display Me</h2>
-                <h2 data-testid="balls">balls</h2>
-                <h2 data-testid="ballsCount">{this.state.balls}</h2>
-                <h2 data-testid="strikes">strikes</h2>
-                <h2 data-testid="strikesCount">{this.state.strikes}</h2>
-                <button onClick={this.ballclicker}>Balls Button</button>
-            </div>
-        )
-    }    
+    return (
+        <div>
+            <h2>Display Scoreboard</h2>
+            <h2 data-testid="balls">balls {balls} </h2>
+            <h2 data-testid="strikes">strikes {strikes}</h2>      
+        </div>
+    )
 }
 
 export default Display;
